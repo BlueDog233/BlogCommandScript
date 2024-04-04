@@ -15,8 +15,12 @@ public class DotParser extends Parser {
 
             while (getDeque().size() > 0) {
                 char c = getDeque().pop();
-                if(c=='"')
-                    sb.append(new QuotationParser(getDeque()).parse());
+                if(c=='"'){
+                    String str=new QuotationParser(getDeque()).parse();
+                    if(!str.equals(" ")){
+                        return new String[]{key,str};
+                    }
+                }
                 if (c == ',') {
                     break;
                 }else if(c==']'){
@@ -30,7 +34,10 @@ public class DotParser extends Parser {
             while (getDeque().size() > 0) {
                 char c = getDeque().pop();
                 if(c=='"') {
-                    return new String[]{new QuotationParser(getDeque()).parse()};
+                    String str=new QuotationParser(getDeque()).parse();
+                    if(!str.equals(" ")){
+                        return new String[]{str};
+                    }
                 }
                 else if (c == ',') {
                     break;

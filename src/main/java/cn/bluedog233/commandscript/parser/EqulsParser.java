@@ -10,6 +10,9 @@ public class EqulsParser extends Parser{
         StringBuilder sb=new StringBuilder();
         while (getDeque().size()>0){
             char c=getDeque().pop();
+            if(c==','){
+                continue;
+            }
             if(c=='='){
                 break;
             }

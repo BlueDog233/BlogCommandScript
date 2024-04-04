@@ -12,8 +12,8 @@ import java.util.List;
  * 执行类,所有指令操作在这里完成
  */
 public class Excutor {
-    //主扫描路径
-    public static String mainPath="cn.bluedog233.commandscript";
+/*    //主扫描路径
+    public static String mainPath="cn.bluedog233.commandscript";*/
     //指令缓存池
     private static List<Command> pools=new ArrayList<>();
     //指令选择器List
@@ -25,7 +25,7 @@ public class Excutor {
         commandSelectors.add(commandSelector);
     }
     //解析多行文本,最后创建一个新的CustomCommand
-    public static CustomCommand parser(String commandLines, String shortName) {
+    public static CustomCommand parse(String commandLines, String shortName) {
         CustomCommand customCommand = new CustomCommand(shortName);
         String[] tokens = commandLines.split("\n");
         for (String commandLine : tokens) {
@@ -67,7 +67,5 @@ public class Excutor {
     }
 
 
-    public static void run(String commandLines,String shortName,Context context) {
-        parser(commandLines,shortName).execute(context);
-    }
+
 }

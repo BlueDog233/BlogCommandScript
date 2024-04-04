@@ -20,15 +20,7 @@ public abstract class CanInject {
         this.propsPoint = propsPoint;
     }
 
-    public HashMap<String, String> getCache() {
-        return cache;
-    }
-
-    public void setCache(HashMap<String, String> cache) {
-        this.cache = cache;
-    }
 
     private HashMap<String,String> props=new HashMap<>();
     private HashMap<String,String> propsPoint=new HashMap<>();
-    private HashMap<String,String> cache=new HashMap<>();//用于存储已经注入的变量
 }

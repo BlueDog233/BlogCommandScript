@@ -18,7 +18,6 @@ import java.util.List;
  * 监听器为静态属性
  */
 public class CustomCommand extends Command {
-    private Context context;
     private List<Command> commands=new ArrayList();
     private static List<Listener> listeners=new ArrayList();
     private String shortName;

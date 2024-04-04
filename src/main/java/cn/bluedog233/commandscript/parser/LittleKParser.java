@@ -18,6 +18,8 @@ public class LittleKParser extends Parser{
             char c = getDeque().pop();
             if (c == ')') {
                 break;
+            }else if(c==','){
+                continue;
             }else{
                 getDeque().push(c);
                 String[] dot=new DotParser(getDeque(),this).parse();
@@ -26,7 +28,7 @@ public class LittleKParser extends Parser{
         }
         List<String> waitRemove=new ArrayList<>();
         props.keySet().stream().filter(k->
-                k.contains("{")
+                props.get(k).contains("{")
         ).forEach(k->{
             waitRemove.add(k);
             arrContainer.getPropsPoint().put(k,props.get(k));
