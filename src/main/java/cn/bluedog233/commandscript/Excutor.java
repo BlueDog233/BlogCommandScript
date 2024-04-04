@@ -21,7 +21,7 @@ public class Excutor {
             add(new TestCommandSelector());
     }};
     //注册指令解析器
-    public static void registerCommandParser(CommandSelector commandSelector) {
+    public static void registerCommandSelector(CommandSelector commandSelector) {
         commandSelectors.add(commandSelector);
     }
     //解析多行文本,最后创建一个新的CustomCommand

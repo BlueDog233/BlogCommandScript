@@ -7,13 +7,11 @@ import cn.bluedog233.commandscript.command.TestCommand;
 import cn.bluedog233.commandscript.parser.propcontainer.Prop;
 
 public class TestCommandSelector extends CommandSelector {
-
     public TestCommandSelector() {
-        super("test");
+        super("testtest");
     }
-
     @Override
     public Command parseD(Prop props) {
-        return CommandBuilder.build(TestCommand.class,props);
+        return CommandBuilder.build(TestCommand.class, props);
     }
 }

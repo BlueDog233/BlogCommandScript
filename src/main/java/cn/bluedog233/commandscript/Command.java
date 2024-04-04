@@ -34,7 +34,10 @@ public abstract class Command {
         HashMap<String,String> waitInjectStr=new HashMap<>();
         HashMap<String,HashMap> waitInjectHashMap=new HashMap<>();
         HashMap<String,List> waitInjectList=new HashMap<>();
-        for(Field key:Context.class.getDeclaredFields()){
+        List<Field> fields=new ArrayList<>();
+        fields.addAll(List.of(Context.class.getDeclaredFields()));
+        fields.addAll(List.of(context.getClass().getDeclaredFields()));
+        for(Field key:fields){
             if(key.getAnnotation(NotProptoInject.class)!=null)
                 continue;
             if(key.getType()==String.class){

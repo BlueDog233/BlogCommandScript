@@ -34,3 +34,7 @@
 [//]: # (- for指令)
 
 [//]: # (- while指令)
+```shell
+mvn md5 ddd-scaffold-lite-1.0.pom > ddd-scaffold-lite-1.0.pom.md5
+mvn shasum ddd-scaffold-lite-1.0.pom > ddd-scaffold-lite-1.0.pom.sha1
+```
