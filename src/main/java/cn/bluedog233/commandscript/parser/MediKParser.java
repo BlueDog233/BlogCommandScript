@@ -1,17 +1,17 @@
 package cn.bluedog233.commandscript.parser;
 
-import cn.bluedog233.commandscript.varinject.HashMapContainer;
+import cn.bluedog233.commandscript.parser.propcontainer.KVContainer;
 
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
 public class MediKParser extends Parser{
-    HashMapContainer hashMap=new HashMapContainer();
+    KVContainer hashMap=new KVContainer();
     public MediKParser(Deque<Character> role) {
         super(']', role);
     }
-    public HashMapContainer parser(){
+    public KVContainer parser(){
         while (getDeque().size()>0) {
             char c = getDeque().getFirst();
             if (c == ']') {

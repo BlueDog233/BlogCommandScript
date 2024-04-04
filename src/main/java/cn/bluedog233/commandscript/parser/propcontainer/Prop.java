@@ -1,4 +1,4 @@
-package cn.bluedog233.commandscript.varinject;
+package cn.bluedog233.commandscript.parser.propcontainer;
 
 
 import java.util.ArrayList;
@@ -16,15 +16,15 @@ public class Prop extends CanInject {
         this.arrContainers = arrContainers;
     }
 
-    public List<HashMapContainer> getHashMapContainers() {
+    public List<KVContainer> getHashMapContainers() {
         return hashMapContainers;
     }
 
-    public void setHashMapContainers(List<HashMapContainer> hashMapContainers) {
+    public void setHashMapContainers(List<KVContainer> hashMapContainers) {
         this.hashMapContainers = hashMapContainers;
     }
 
     private List<ArrContainer> arrContainers = new ArrayList<>();
-    private List<HashMapContainer> hashMapContainers = new ArrayList<>();
+    private List<KVContainer> hashMapContainers = new ArrayList<>();
 
 }

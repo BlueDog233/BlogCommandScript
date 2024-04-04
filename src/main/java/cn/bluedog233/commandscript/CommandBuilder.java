@@ -1,6 +1,6 @@
 package cn.bluedog233.commandscript;
 
-import cn.bluedog233.commandscript.varinject.Prop;
+import cn.bluedog233.commandscript.parser.propcontainer.Prop;
 
 /**
  * 指令Builder类,直接BuildCommand

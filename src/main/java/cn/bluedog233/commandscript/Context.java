@@ -13,6 +13,7 @@ public class Context {
     HashMap<String,String> props=new HashMap<>();//可扩展环境
     @NotProptoInject
     HashMap<Integer,Result> history=new HashMap<>();
+
     //其他环境
     public void put(String key,String value){
         props.put(key,value);

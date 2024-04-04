@@ -5,7 +5,7 @@ package cn.bluedog233.commandscript;
 import cn.bluedog233.commandscript.common.Result;
 import cn.bluedog233.commandscript.annotation.Inject;
 import cn.bluedog233.commandscript.annotation.NotProptoInject;
-import cn.bluedog233.commandscript.varinject.Prop;
+import cn.bluedog233.commandscript.parser.propcontainer.Prop;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -78,8 +78,8 @@ public abstract class Command {
         });
         prop.getArrContainers().forEach(l->{
             List<String> props=new ArrayList<>();
-            props.addAll(l.getProps().keySet().stream().toList());
-            l.getPropsPoint().keySet().forEach(ke->{
+            props.addAll(l.getProps().values().stream().toList());
+            l.getPropsPoint().values().forEach(ke->{
                 String v=ke.substring(1,ke.length()-1);
                 if(waitInjectStr.containsKey(v)) {
                     props.add(waitInjectStr.get(v));
@@ -137,7 +137,6 @@ public abstract class Command {
     public Result execute(Context context)  {
         try {
             inject(context);
-
             Result result=func(context);
             recover();
             return result;

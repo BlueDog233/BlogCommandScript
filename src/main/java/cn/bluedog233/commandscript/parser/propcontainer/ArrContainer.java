@@ -1,4 +1,4 @@
-package cn.bluedog233.commandscript.varinject;
+package cn.bluedog233.commandscript.parser.propcontainer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,15 +8,11 @@ import java.util.List;
  */
 public class ArrContainer extends CanInject{
 
-    List<HashMapContainer> hashMapContainers=new ArrayList<>();
     private String name;
-
     public void setName(String name){
         this.name=name;
     }
     public String getName(){
         return name;
     }
-
-
 }

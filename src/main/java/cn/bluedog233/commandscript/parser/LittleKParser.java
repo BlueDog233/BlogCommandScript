@@ -1,9 +1,10 @@
 package cn.bluedog233.commandscript.parser;
 
-import cn.bluedog233.commandscript.varinject.ArrContainer;
+import cn.bluedog233.commandscript.parser.propcontainer.ArrContainer;
 
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.List;
 
 public class LittleKParser extends Parser{
@@ -12,6 +13,7 @@ public class LittleKParser extends Parser{
         super(')', role);
     }
     public ArrContainer parse(){
+        final HashMap<String, String> props = arrContainer.getProps();
         while (getDeque().size()>0) {
             char c = getDeque().pop();
             if (c == ')') {
@@ -19,18 +21,18 @@ public class LittleKParser extends Parser{
             }else{
                 getDeque().push(c);
                 String[] dot=new DotParser(getDeque(),this).parse();
-                arrContainer.getProps().put(dot[0],null);
+                props.put("arr"+props.size(),dot[0]);
             }
         }
         List<String> waitRemove=new ArrayList<>();
-        arrContainer.getProps().keySet().stream().filter(k->
+        props.keySet().stream().filter(k->
                 k.contains("{")
         ).forEach(k->{
             waitRemove.add(k);
-            arrContainer.getPropsPoint().put(k,null);
+            arrContainer.getPropsPoint().put(k,props.get(k));
         });
         waitRemove.forEach(k->{
-            arrContainer.getProps().remove(k);
+            props.remove(k);
         });
         return arrContainer;
     }

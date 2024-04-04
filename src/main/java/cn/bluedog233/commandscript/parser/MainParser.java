@@ -1,8 +1,8 @@
 package cn.bluedog233.commandscript.parser;
 
-import cn.bluedog233.commandscript.varinject.ArrContainer;
-import cn.bluedog233.commandscript.varinject.HashMapContainer;
-import cn.bluedog233.commandscript.varinject.Prop;
+import cn.bluedog233.commandscript.parser.propcontainer.ArrContainer;
+import cn.bluedog233.commandscript.parser.propcontainer.KVContainer;
+import cn.bluedog233.commandscript.parser.propcontainer.Prop;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -18,9 +18,6 @@ public class MainParser extends Parser{
     public Prop parse(){
         while (getDeque().size()>0){
             char c=getDeque().getFirst();
-            if(c==' '){
-                break;
-            }
             if(c==',')
                 c=getDeque().pop();
             String key = new EqulsParser(getDeque()).parse();
@@ -28,7 +25,7 @@ public class MainParser extends Parser{
             switch (c){
                 case '[':
                     getDeque().pop();
-                    HashMapContainer hash=new MediKParser(getDeque()).parser();
+                    KVContainer hash=new MediKParser(getDeque()).parser();
                     hash.setName(key);
                     prop.getHashMapContainers().add(hash);
                     break;

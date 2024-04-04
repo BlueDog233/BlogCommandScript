@@ -11,12 +11,12 @@ public class Main {
         });
         Excutor.run("""
                 test str={title},strmap=[t1=sda,t2=dads,t3={str}],strs=(666,66),name=我是test1
-                test str={#1},strmap=[t1=sda,t2=dads,t3={str}],strs=(666,66)
-                test strmap=[t1=sda,t2=dads,t3={str}],strs=(666,66)
+                test str={#1},strmap=[t1="sda sdadsadas",t2=dads,t3={str}],strs=(666,66)
+                test strmap=[t1=sda,t2=dads,t3={str}],strs=(666,66,"dsadasfsc sadasdas sadasdas",666)
                 ""","test",new Context());
         Excutor.run("""
                 command test
                 ""","test2",new Context());
 
     }
-}
+    }

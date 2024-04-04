@@ -1,10 +1,10 @@
-package cn.bluedog233.commandscript.varinject;
+package cn.bluedog233.commandscript.parser.propcontainer;
 
-public class HashMapContainer extends CanInject{
+public class KVContainer extends CanInject{
 
     private String name;
 
-    public HashMapContainer(){
+    public KVContainer(){
 
     }
     public void setName(String name){
