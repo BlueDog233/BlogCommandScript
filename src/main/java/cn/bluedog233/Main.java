@@ -9,14 +9,13 @@ public class Main {
         CustomCommand.addListener((context, command) -> {
             System.out.println("我是挂载的监听器");
         });
-        Excutor.run("""
-                test str={title},strmap=[t1=sda,t2=dads,t3={str}],strs=(666,66),name=我是test1
-                test str={#1},strmap=[t1="sda sdadsadas",t2=dads,t3={str}],strs=(666,66)
-                test strmap=[t1=sda,t2=dads,t3={str}],strs=(666,66,"dsadasfsc sadasdas sadasdas",666)
-                ""","test",new Context());
-        Excutor.run("""
+        Excutor.parse("""
+                test str="str1",strs=("str2","str3",{title}),strmap=[k1=666,k2="555",k3={title}]
+                test str={#1}
+                ""","test").execute(new Context());
+        Excutor.parse("""
                 command test
-                ""","test2",new Context());
+                ""","test2").execute(new Context());
 
     }
     }
