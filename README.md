@@ -1,5 +1,13 @@
 # ECS(EasyCommandScript)简单指令式脚本-JAVA中间件
 
+> ## Github仓库链接
+>
+> https://github.com/BlueDog233/BlogCommandScript
+>
+> Maven中央仓库目前正在审核
+
+第一次写博客,也是写的第一个中间件。文字与代码稍显稚嫩,多多海涵。谢谢大家。
+
 ## 开发动机
 
 >之前写一个发卡网项目,我需要在支付成功后调用一些动作(如,请求接口,从数据库获取信息,发送邮箱)。因为每一个商品所调用的动作不一样,并且存在多个组合动作(比如说 购买apikey一类的商品我需要从数据库取apikey,然后将apikey发送到邮箱,有些时候又需要从其他接口取到数据,然后结合本地数据库中的信息,一起发到指定邮箱)。由于商品繁多并且每个商品的动作难以抽象(例如请求接口,携带header,请求地址,method均可能不同),所以打算采取一种,热更新的方式来增加购买商品后的动作组合。之前有想过使用python,JavaScript等脚本语言,但是对于这种需求,很明显是大材小用。后来就想到使用指令式的方式来完成这种组合动作,于是思考设计,对比之前接触过的指令机制(Minecraft指令,linux指令)之下,诞生了这个中间件。
@@ -71,6 +79,14 @@
 >
 
 ### 1 安装Maven
+
+```xml
+ <dependency> 
+   <groupId>io.github.bluedog233</groupId>
+    <artifactId>easy-commandscript</artifactId>
+    <version>1.0</version>
+</dependency>
+```
 
 
 
@@ -186,6 +202,8 @@ public class Main {
 
 ![image-20240405013128318](https://photofortypora.oss-cn-beijing.aliyuncs.com/image-20240405013128318.png)
 
+## 依赖注入流程[推荐阅读]
+
 
 
 ## Some运行原理
@@ -215,6 +233,14 @@ public class Main {
 ## 真实业务代码中使用(我是怎么用它)
 
 ### 0 载入Maven
+
+```xml
+ <dependency> 
+   <groupId>io.github.bluedog233</groupId>
+    <artifactId>easy-commandscript</artifactId>
+    <version>1.0</version>
+</dependency>
+```
 
 
 
